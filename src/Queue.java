@@ -9,13 +9,20 @@ public class Queue<E> extends LinkedList<E>
     public boolean offer(E e)
     {
         // add function from Collection returns true if the Collection changed
-        return list.add(e);
+        list.add(e);
+        return list.contains(e);
     }
 
-    public E peek(E e)
+    public E peek()
     {
+        // check if the list is empty
+        if (list.size() == 0)
+        {
+            return null;
+        }
         // return the first element of the list
-        return list.getFirst();
+        E first = list.getFirst();
+        return first;
     }
 
     public E poll()
