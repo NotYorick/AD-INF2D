@@ -3,12 +3,12 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
-class SequentialSearchTest{
+public class SequentialSearchTest{
 
     static void main(String[] args){}
 
     @Test
-    void testSeq(){
+    public void testSeq(){
         SequentialSearch search = new SequentialSearch();
 
         ArrayList<Integer> arrayList = new ArrayList<>();

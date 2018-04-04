@@ -3,12 +3,12 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
-class StackTest{
+public class StackTest{
 
-    static void main(String[] args){}
+    public static void main(String[] args){}
 
     @Test
-    void testStack(){
+    public void testStack(){
         Stack stack = new Stack();
 
         Assert.assertEquals(true, stack.empty()); //True, de stack hoort leeg te zijn
@@ -25,6 +25,6 @@ class StackTest{
 
         Assert.assertEquals(14, stack.peek()); //True, nummer 14 moet nu bovenaan staan
 
-        Assert.assertEquals( 2, stack.search( 13 ) ); //True, 13 zou op index 2 moeten staan
+        Assert.assertEquals( 1, stack.search( 13 ) ); //True, 13 zou op index 1 moeten staan
     }
 }
