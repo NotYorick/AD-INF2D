@@ -39,25 +39,55 @@ public class NewDoublyLinkedListTest {
 
     @Test
     public void addLast() {
-    }
-
-    @Test
-    public void iterateForward() {
-    }
-
-    @Test
-    public void iterateBackward() {
+        NewDoublyLinkedList test = new NewDoublyLinkedList();
+        test.add("test1");
+        test.add("test2");
+        test.add("test3");
+        test.add("test4");
+        test.add("test5");
+        test.add("test6");
+        test.addLast("test3");
+        assertEquals(test.getLast(),"test3");
     }
 
     @Test
     public void removeFirst() {
+        NewDoublyLinkedList test = new NewDoublyLinkedList();
+        test.add("test1");
+        test.add("test2");
+        test.add("test3");
+        test.add("test4");
+        test.add("test5");
+        test.add("test6");
+        test.addLast("test3");
+        test.removeFirst();
+        assertEquals(test.getFirst(),"test2");
     }
 
     @Test
     public void removeLast() {
+        NewDoublyLinkedList test = new NewDoublyLinkedList();
+        test.add("test1");
+        test.add("test2");
+        test.add("test3");
+        test.add("test4");
+        test.add("test5");
+        test.add("test6");
+        test.removeLast();
+        assertEquals(test.getLast(),"test5");
     }
 
     @Test
     public void reverse() {
+        NewDoublyLinkedList test = new NewDoublyLinkedList();
+        test.add("test1");
+        test.add("test2");
+        test.add("test3");
+        test.add("test4");
+        test.add("test5");
+        test.add("test6");
+        test.reverse();
+        assertEquals(test.getLast(),"test1");
+        assertEquals(test.getFirst(),"test6");
     }
 }

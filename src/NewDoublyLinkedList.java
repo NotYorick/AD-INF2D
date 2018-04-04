@@ -43,6 +43,7 @@ class NewDoublyLinkedList<E> {
             Node node = head;
             for ( ; node.next != null; node = node.next) {}
             node.next = new Node(element,null,node);
+            tail = node.next;
         }
         size++;
         return true;
@@ -161,9 +162,10 @@ class NewDoublyLinkedList<E> {
         list.add("halp");
         list.add("halp2");
         list.addAtPos("halp3",2);
+        list.removeLast();
         System.out.println(list.get(0));
-        System.out.println(list.get(1));
-        System.out.println(list.get(2));
+
+
 
 
     }
