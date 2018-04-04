@@ -36,31 +36,30 @@ class NewDoublyLinkedList<E> {
         size++;
     }
 
-    public void addAtPos(E val , int pos)
+    public boolean add(E element) {
+        if (head == null) {
+            head = new Node(element,null,null);
+        } else {
+            Node node = head;
+            for ( ; node.next != null; node = node.next) {}
+            node.next = new Node(element,null,node);
+        }
+        size++;
+        return true;
+    }
+    public void addAtPos (E val, int pos)
     {
-        Node newNode = new Node(val, null, null);
-        if (pos == 1)
-        {
-            addFirst(val);
-            return;
-        }
-        Node itNode = head;
-        for (int i = 2; i <= size; i++)
-        {
-            if (i == pos)
-            {
-                Node tmp = itNode.next;
-                itNode = itNode.prev;
-                itNode.next = newNode;
-                newNode.prev = itNode;
-                newNode.next = tmp;
-                size++ ;
-                return;
+        Node add = new Node(val,null,null);
+        int ix = pos - 1;
+        Node cur = head;
+        for (int i = 0; i < size; i++) {
+            if(i == ix) {
+                add.next = cur.next;
+                cur.next = add;
             }
-            itNode = itNode.next;
+            cur = cur.next;
         }
-
-
+        ++size;
     }
 
     public void addLast(E element) {
@@ -108,6 +107,39 @@ class NewDoublyLinkedList<E> {
         return tmp.element;
     }
 
+    public void reverse(){
+        Node cn = head;
+        Node tmp = null;
+        while(cn != null){
+            tmp = cn.next;
+            cn.next = cn.prev;
+            cn.prev = tmp;
+
+            cn = cn.prev;
+        }
+        tmp = head;
+        head = tail;
+        tail = tmp;
+        head.prev = null;
+        tail.next = null;
+    }
+
+    public E get(int index) {
+        Node node = getNode(index);
+        return node.element;
+    }
+
+    private Node getNode(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException();
+        }
+        Node node = head;
+        for (int i=0; i<index; i++) {
+            node = node.next;
+        }
+        return node;
+    }
+
     public boolean isEmpty() {
         return size == 0;
     }
@@ -125,16 +157,14 @@ class NewDoublyLinkedList<E> {
     }
 
     public static void main(String a[]){
+        NewDoublyLinkedList list = new NewDoublyLinkedList();
+        list.add("halp");
+        list.add("halp2");
+        list.addAtPos("halp3",2);
+        System.out.println(list.get(0));
+        System.out.println(list.get(1));
+        System.out.println(list.get(2));
 
-        NewDoublyLinkedList<Integer> dll = new NewDoublyLinkedList<Integer>();
-        dll.addFirst(10);
-        dll.addFirst(34);
-        dll.addLast(56);
-        dll.addLast(364);
-        dll.addAtPos(364,4);
-        dll.iterateForward();
-        dll.removeFirst();
-        dll.removeLast();
-        dll.iterateBackward();
+
     }
 }
