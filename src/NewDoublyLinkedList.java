@@ -50,7 +50,9 @@ class NewDoublyLinkedList<E> {
             if (i == pos)
             {
                 Node tmp = itNode.next;
+                itNode = itNode.prev;
                 itNode.next = newNode;
+                newNode.prev = itNode;
                 newNode.next = tmp;
                 size++ ;
                 return;
@@ -112,6 +114,14 @@ class NewDoublyLinkedList<E> {
 
     public int size() {
         return size;
+    }
+
+    public E getFirst() {
+        return head.element;
+    }
+
+    public E getLast() {
+        return tail.element;
     }
 
     public static void main(String a[]){
