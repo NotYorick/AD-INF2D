@@ -1,42 +1,51 @@
-import java.util.Collection;
-import java.util.Iterator;
+
 import java.util.LinkedList;
 
-public class Queue<E> extends LinkedList<E>
+public class Stack<E> extends LinkedList<E>
 {
     private LinkedList<E> list = new LinkedList<E>();
 
-    public boolean add(E e)
-    {
+    public void main(String[] args) { }
 
-        return false;
-    }
-
-    public boolean offer(E e)
-    {
-        //
-        list.addLast(e);
+    //Kijken of de stack leeg is
+    public boolean empty(){
+        if(list.size() > 0){
+            return false;
+        }
         return true;
     }
 
-    public E peek(E e)
+    //Kijken naar het bovenste object vd stack
+    public E peek()
     {
-        return list.getFirst();
-    }
-
-    public E poll()
-    {
-        if (list.size() == 0)
-        {
-            return null;
+        if(!list.isEmpty()){
+            return list.getFirst();
         }
-        E oldfirst = list.getFirst();
-        list.remove(oldfirst);
-        return oldfirst;
+
+        return null;
     }
 
-    public E remove()
+    //Het bovenste object van de stack halen
+    public E pop()
     {
-        return null;
+        E returnValue = list.getFirst();
+        list.remove( list.getFirst() );
+        return returnValue;
+    }
+
+    //Een nieuw item aan de stack toevoegen
+    public void push(E item){
+        list.addFirst( item );
+    }
+
+    //Item in de stack zoeken
+    public int search(Object o){
+        for(int i=0;i<list.size();i++){
+            if(list.get(i) == o){
+                return i;
+            }
+        }
+
+        return -1;
     }
 }
