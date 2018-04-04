@@ -1,3 +1,6 @@
+//@author Marco Brink
+//@date   04-04-2018
+
 public class BubbleSort {
 
     BubbleSort(int[] arr) {
