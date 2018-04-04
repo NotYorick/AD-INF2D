@@ -6,12 +6,6 @@ import java.util.ListIterator;
 
 class NewLinkedList<E> implements List<E> {
 
-    /**
-     * Node is identical to ListNode from the example, but parameterized with T
-     *
-     * @author downey
-     *
-     */
     private class Node {
         public E data;
         public Node next;
@@ -33,27 +27,9 @@ class NewLinkedList<E> implements List<E> {
     private int size;            // keeps track of the number of elements
     private Node head;           // reference to the first node
 
-    /**
-     *
-     */
     public NewLinkedList() {
         head = null;
         size = 0;
-    }
-
-    /**
-     * @param args
-     */
-    public static void main(String[] args) {
-        // run a few simple tests
-        List<Integer> mll = new NewLinkedList<Integer>();
-        mll.add(1);
-        mll.add(2);
-        mll.add(3);
-        System.out.println(Arrays.toString(mll.toArray()) + " size = " + mll.size());
-
-        mll.remove(new Integer(2));
-        System.out.println(Arrays.toString(mll.toArray()) + " size = " + mll.size());
     }
 
     @Override
@@ -62,7 +38,6 @@ class NewLinkedList<E> implements List<E> {
             head = new Node(element);
         } else {
             Node node = head;
-            // loop until the last node
             for ( ; node.next != null; node = node.next) {}
             node.next = new Node(element);
         }
@@ -72,7 +47,6 @@ class NewLinkedList<E> implements List<E> {
 
     @Override
     public void add(int index, E element) {
-        //TODO: FILL THIS IN!
         if(index == 0){
             head = new Node(element, head);
         }else{
@@ -123,10 +97,6 @@ class NewLinkedList<E> implements List<E> {
         return node.data;
     }
 
-    /** Returns the node at the given index.
-     * @param index
-     * @return
-     */
     private Node getNode(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException();
@@ -267,7 +237,6 @@ class NewLinkedList<E> implements List<E> {
         Object[] array = new Object[size];
         int i = 0;
         for (Node node=head; node != null; node = node.next) {
-            // System.out.println(node);
             array[i] = node.data;
             i++;
         }
@@ -277,5 +246,16 @@ class NewLinkedList<E> implements List<E> {
     @Override
     public <T> T[] toArray(T[] a) {
         throw new UnsupportedOperationException();
+    }
+
+    public static void main(String[] args) {
+        List<Integer> mll = new NewLinkedList<Integer>();
+        mll.add(1);
+        mll.add(2);
+        mll.add(3);
+        System.out.println(Arrays.toString(mll.toArray()) + " size = " + mll.size());
+
+        mll.remove(new Integer(2));
+        System.out.println(Arrays.toString(mll.toArray()) + " size = " + mll.size());
     }
 }

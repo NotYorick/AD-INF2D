@@ -8,12 +8,10 @@ class NewDoublyLinkedList<E> {
 
     public NewDoublyLinkedList() {
         size = 0;
+        head = null;
+        tail = null;
     }
-    /**
-     * this class keeps track of each element information
-     * @author java2novice
-     *
-     */
+
     private class Node {
         E element;
         Node next;
@@ -25,26 +23,7 @@ class NewDoublyLinkedList<E> {
             this.prev = prev;
         }
     }
-    /**
-     * returns the size of the linked list
-     * @return
-     */
-    public int size() {
-        return size;
-    }
 
-    /**
-     * return whether the list is empty or not
-     * @return
-     */
-    public boolean isEmpty() {
-        return size == 0;
-    }
-
-    /**
-     * adds element at the starting of the linked list
-     * @param element
-     */
     public void addFirst(E element) {
         Node tmp = new Node(element, head, null);
         if(head != null ) {
@@ -55,13 +34,33 @@ class NewDoublyLinkedList<E> {
             tail = tmp;
         }
         size++;
-        System.out.println("adding: "+element);
     }
 
-    /**
-     * adds element at the end of the linked list
-     * @param element
-     */
+    public void addAtPos(E val , int pos)
+    {
+        Node newNode = new Node(val, null, null);
+        if (pos == 1)
+        {
+            addFirst(val);
+            return;
+        }
+        Node itNode = head;
+        for (int i = 2; i <= size; i++)
+        {
+            if (i == pos)
+            {
+                Node tmp = itNode.next;
+                itNode.next = newNode;
+                newNode.next = tmp;
+                size++ ;
+                return;
+            }
+            itNode = itNode.next;
+        }
+
+
+    }
+
     public void addLast(E element) {
 
         Node tmp = new Node(element, null, tail);
@@ -69,15 +68,10 @@ class NewDoublyLinkedList<E> {
         tail = tmp;
         if(head == null) { head = tmp;}
         size++;
-        System.out.println("adding: "+element);
     }
 
-    /**
-     * this method walks forward through the linked list
-     */
     public void iterateForward(){
 
-        System.out.println("iterating forward..");
         Node tmp = head;
         while(tmp != null){
             System.out.println(tmp.element);
@@ -85,12 +79,8 @@ class NewDoublyLinkedList<E> {
         }
     }
 
-    /**
-     * this method walks backward through the linked list
-     */
     public void iterateBackward(){
 
-        System.out.println("iterating backword..");
         Node tmp = tail;
         while(tmp != null){
             System.out.println(tmp.element);
@@ -98,32 +88,30 @@ class NewDoublyLinkedList<E> {
         }
     }
 
-    /**
-     * this method removes element from the start of the linked list
-     * @return
-     */
     public E removeFirst() {
         if (size == 0) throw new NoSuchElementException();
         Node tmp = head;
         head = head.next;
         head.prev = null;
         size--;
-        System.out.println("deleted: "+tmp.element);
         return tmp.element;
     }
 
-    /**
-     * this method removes element from the end of the linked list
-     * @return
-     */
     public E removeLast() {
         if (size == 0) throw new NoSuchElementException();
         Node tmp = tail;
         tail = tail.prev;
         tail.next = null;
         size--;
-        System.out.println("deleted: "+tmp.element);
         return tmp.element;
+    }
+
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    public int size() {
+        return size;
     }
 
     public static void main(String a[]){
@@ -133,6 +121,7 @@ class NewDoublyLinkedList<E> {
         dll.addFirst(34);
         dll.addLast(56);
         dll.addLast(364);
+        dll.addAtPos(364,4);
         dll.iterateForward();
         dll.removeFirst();
         dll.removeLast();
