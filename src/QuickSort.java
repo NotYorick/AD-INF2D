@@ -5,11 +5,9 @@
  * @date april 2018
  * 
  *
- * This method is used to sort (put in ascending order ) an array by using the quicksort method,
+ * This class is used to sort (put in ascending order ) an array by using the quicksort method,
  * meaning it starts by creating a pivot (one value of the array to test against) and see if the other values are higher or lower than the pivot.
  * The lower and higher groups will all be sorted as well in the same way with their own pivots untill all is sorted.
- * @low the starting index
- * @high the ending index
  *
  */
 
