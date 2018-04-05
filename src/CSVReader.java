@@ -1,11 +1,12 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.LinkedList;
+
 
 public class CSVReader {
   private static LinkedList<String[]> ll = new LinkedList<>();
-  private static String[] llString;
   
   public static void main(String[] args) {
   
@@ -23,7 +24,6 @@ public class CSVReader {
         if(i > 0){
           ll.add( lego );
         }
-        getLegoLinkedList();
         i++;
       }
       
@@ -32,9 +32,13 @@ public class CSVReader {
     }
   }
   
-  public static LinkedList<String[]> getLegoLinkedList(){
+  public LinkedList<String[]> getLegoLinkedList() {
     return ll;
+  }
   
-}
+  public ArrayList<String[]> getLegoArrayList() {
+    ArrayList<String[]> al = new ArrayList<>( ll );
+    return al;
+  }
   
 }
