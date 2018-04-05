@@ -16,17 +16,22 @@ public class BinarySearchTest {
     @Test
     public void testBinarySearchInt()
     {
+        // create a sorted array of ints and test values in the middle, left and right
         int[] array = {1, 4, 6, 8, 9, 12, 31, 35, 56, 77, 89};
-        assertThat(test.binarySearch(array, 1, 0, array.length), is(0));
-        assertThat(test.binarySearch(array, 56, 0, array.length), is(8));
-        assertThat(test.binarySearch(array, 8, 0, array.length), is(3));
-        assertThat(test.binarySearch(array, 89, 0, array.length), is(10));
-        assertThat(test.binarySearch(array, 2, 0, array.length), is(-1));
+        assertThat(test.binarySearchInt(array, 1, 0, array.length), is(0));
+        assertThat(test.binarySearchInt(array, 8, 0, array.length), is(3));
+        assertThat(test.binarySearchInt(array, 12, 0, array.length), is(5));
+        assertThat(test.binarySearchInt(array, 56, 0, array.length), is(8));
+        assertThat(test.binarySearchInt(array, 89, 0, array.length), is(10));
+        // test to make sure it can't find values that are not in the array
+        assertThat(test.binarySearchInt(array, 2, 0, array.length), is(-1));
     }
 
     @Test
     public void testBinarySearchStringNumbers()
     {
+        // create a sorted array of Strings containing the same numbers as the in test
+        // again test the middle, left, right
         String[] array = {"01", "04", "06", "08", "09", "12", "31", "35", "56", "77", "89"};
         assertThat(test.binarySearchString(array, "01", 0, array.length), is(0));
         assertThat(test.binarySearchString(array, "77", 0, array.length), is(9));
@@ -34,19 +39,22 @@ public class BinarySearchTest {
         assertThat(test.binarySearchString(array, "09", 0, array.length), is(4));
         assertThat(test.binarySearchString(array, "12", 0, array.length), is(5));
         assertThat(test.binarySearchString(array, "89", 0, array.length), is(10));
+        // test to make sure it can't find values that are not in the array
         assertThat(test.binarySearchString(array, "02", 0, array.length), is(-1));
     }
 
     @Test
     public void testBinarySearchStringWords()
     {
+        // create a sorted array of Strings and test values in middle, left and right
         String[] array = {"aaa", "aab", "abb", "bbb", "ccd", "eax", "ewc", "lkl", "qwe", "xsx", "zzz"};
         assertThat(test.binarySearchString(array, "aaa", 0, array.length), is(0));
-        assertThat(test.binarySearchString(array, "xsx", 0, array.length), is(9));
-        assertThat(test.binarySearchString(array, "aab", 0, array.length), is(1));
-        assertThat(test.binarySearchString(array, "ccd", 0, array.length), is(4));
-        assertThat(test.binarySearchString(array, "eax", 0, array.length), is(5));
+        assertThat(test.binarySearchString(array, "lkl", 0, array.length), is(7));
+        assertThat(test.binarySearchString(array, "abb", 0, array.length), is(2));
+        assertThat(test.binarySearchString(array, "bbb", 0, array.length), is(3));
+        assertThat(test.binarySearchString(array, "ewc", 0, array.length), is(6));
         assertThat(test.binarySearchString(array, "zzz", 0, array.length), is(10));
+        // test to make sure it can't find values that are not in the array
         assertThat(test.binarySearchString(array, "nouditgaatdusnietwerken", 0, array.length), is(-1));
     }
 }
