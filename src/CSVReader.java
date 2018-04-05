@@ -7,16 +7,17 @@ import java.util.regex.Pattern;
 
 
 public class CSVReader {
-  private static LinkedList<String[]> ll = new LinkedList<>();
+  private LinkedList<String[]> ll = new LinkedList<>();
   
-  public static void main(String[] args) {
+  public static void main(String[] arg){ CSVReader cs = new CSVReader(); }
   
+  CSVReader() {
     String csvFile = "legosets.csv";
     
     setList(csvFile);
   }
   
-  private static void setList(String csvFile){
+  private void setList(String csvFile){
     String line = "";
     String cvsSplitBy = ",";
     
@@ -49,9 +50,8 @@ public class CSVReader {
     return al;
   }
   
-  public String[] getLegoArray() {
-    String[] array = new String[ll.size()];
-    array = ll.toArray(array);
+  public String[][] getLegoArray() {
+    String[][] array = ll.toArray(new String[ll.size()][]);
     return array;
   }
   
