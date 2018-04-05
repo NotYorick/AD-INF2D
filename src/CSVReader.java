@@ -3,6 +3,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.regex.Pattern;
 
 
 public class CSVReader {
@@ -22,7 +23,10 @@ public class CSVReader {
         String[] lego = line.split(cvsSplitBy);
   
         if(i > 0){
-          ll.add( lego );
+          if(Pattern.matches("^[a-zA-Z]+$", lego[0]) == false){
+            ll.add( lego );
+            System.out.println(lego[0]);
+          }
         }
         i++;
       }
@@ -39,6 +43,12 @@ public class CSVReader {
   public ArrayList<String[]> getLegoArrayList() {
     ArrayList<String[]> al = new ArrayList<>( ll );
     return al;
+  }
+  
+  public String[] getLegoArray() {
+    String[] array = new String[ll.size()];
+    array = ll.toArray(array);
+    return array;
   }
   
 }
