@@ -63,8 +63,8 @@ class Game
     {
         Piece[] Grid = cloneGrid(InputGrid);
 
-        if (checkScore(Grid, Player) != 0)
-            return checkScore(Grid, Player);
+        if (checkScore(Grid, Computer) != 0)
+            return checkScore(Grid, Computer);
         else if (checkGameEnd(Grid)) return 0;
 
         ArrayList<Integer> scores = new ArrayList<>();
