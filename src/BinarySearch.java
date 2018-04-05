@@ -1,6 +1,6 @@
 public class BinarySearch {
 
-    public int binarySearch(int[] array, int key, int start, int end)
+    public int binarySearchInt(int[] array, int key, int start, int end)
     {
         // if the key isn't in the array, the recursion will call this method with start greater than end
         if (end <= start)
@@ -17,12 +17,12 @@ public class BinarySearch {
         else if (key < array[middle])
         {
             // binarySearch on the left half
-            return binarySearch(array, key, start, middle);
+            return binarySearchInt(array, key, start, middle);
         }
         else
         {
             // binarySearch on the right half
-            return binarySearch(array, key, middle + 1, end);
+            return binarySearchInt(array, key, middle + 1, end);
         }
     }
 
