@@ -12,25 +12,29 @@ public class CSVReader {
   public static void main(String[] args) {
   
     String csvFile = "legosets.csv";
+    
+    setList(csvFile);
+  }
+  
+  private static void setList(String csvFile){
     String line = "";
     String cvsSplitBy = ",";
     
     try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
       int i = 0;
       while ((line = br.readLine()) != null) {
-        
+      
         // use comma as separator
         String[] lego = line.split(cvsSplitBy);
-  
+      
         if(i > 0){
           if(Pattern.matches("^[a-zA-Z]+$", lego[0]) == false){
             ll.add( lego );
-            System.out.println(lego[0]);
           }
         }
         i++;
       }
-      
+    
     } catch (IOException e) {
       e.printStackTrace();
     }
