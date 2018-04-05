@@ -7,12 +7,16 @@ public class SequentialSearch {
     }
 
     //De zoekopdracht met een array en de tevinden waarde in deze array
-    public static int search(ArrayList<Integer> arr, int key){
+    public static int search(ArrayList<String[]> arr, String key){
         //Loop door de array heen tot je bij de gevonden waarde aankomt
-        for(int i=0;i<arr.size();i++){
+        for(int j=0;j<arr.size();j++){
             //Return de plaats van de waarde wanneer deze gevonden is
-            if(arr.get(i) == key){
-                return i;
+          
+            String id = arr.get(j)[0];
+            id = id.replace("\"", "");
+            
+            if(id.equals(key)){
+                return j;
             }
         }
         //Return -1 wanneer de waarde niet gevonden is
