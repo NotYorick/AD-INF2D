@@ -9,7 +9,7 @@ public class SmartBubbleSort {
         int n = arr.length;
         int temp = 0;
 
-
+        //The first loop is the amount of iterations over the array
         outerloop:
         for(int i = 0; i < n; i++){
 
@@ -21,6 +21,7 @@ public class SmartBubbleSort {
                 break outerloop;
             }
 
+            //Make the comparison between elements within this loop
             for(int j=1; j < (n-i); j++){
 
                 if(arr[j-1] > arr[j]){
@@ -28,6 +29,8 @@ public class SmartBubbleSort {
                     temp = arr[j-1];
                     arr[j-1] = arr[j];
                     arr[j] = temp;
+
+                    //Set flag to true to indicate that the list isn't sorted yet
                     flag = true;
                 }
             }
