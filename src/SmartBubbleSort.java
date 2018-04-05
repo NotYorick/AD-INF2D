@@ -1,8 +1,6 @@
 //@author Marco Brink
 //@date   04-04-2018
 
-import java.io.Console;
-
 public class SmartBubbleSort {
 
     boolean flag = false;
