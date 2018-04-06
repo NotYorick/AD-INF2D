@@ -9,7 +9,9 @@ import java.util.regex.Pattern;
 public class CSVReader {
   private LinkedList<String[]> ll = new LinkedList<>();
   
-  public static void main(String[] arg){ CSVReader cs = new CSVReader(); }
+  public static void main(String[] arg)
+  {
+  }
   
   CSVReader() {
     String csvFile = "legosets.csv";
@@ -52,6 +54,19 @@ public class CSVReader {
   
   public String[][] getLegoArray() {
     String[][] array = ll.toArray(new String[ll.size()][]);
+    return array;
+  }
+
+  public int[] getItemNrArray() {
+    String[][] array2d = getLegoArray();
+    int[] array = new int[array2d.length];
+
+    for (int i = 0; i < array2d.length-1; i++)
+    {
+      String id = array2d[i][0];
+      id = id.replace("\"", "");
+      array[i] = Integer.parseInt(id);
+    }
     return array;
   }
   

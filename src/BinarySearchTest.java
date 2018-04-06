@@ -1,6 +1,8 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
@@ -11,6 +13,7 @@ public class BinarySearchTest {
     public void setUp() throws Exception
     {
         test = new BinarySearch();
+
     }
 
     @Test
@@ -56,5 +59,21 @@ public class BinarySearchTest {
         assertThat(test.binarySearchString(array, "zzz", 0, array.length), is(10));
         // test to make sure it can't find values that are not in the array
         assertThat(test.binarySearchString(array, "nouditgaatdusnietwerken", 0, array.length), is(-1));
+    }
+
+    @Test
+    public void testBinarySearchLegoDataset()
+    {
+        // create an array of int from the itemnumbers and sort the array
+        CSVReader csvReader = new CSVReader();
+        int[] dataArray = csvReader.getItemNrArray();
+        Arrays.sort(dataArray);
+
+        // test some values from the lego dataset
+        assertThat(test.binarySearchInt(dataArray, 5, 0, dataArray.length), is(1));
+        assertThat(test.binarySearchInt(dataArray, 6031641, 0, dataArray.length), is(dataArray.length-1));
+        assertThat(test.binarySearchInt(dataArray, 5969, 0, dataArray.length), is(2018));
+        // test to make sure it can't find values that are not in the array
+        assertThat(test.binarySearchInt(dataArray, 1, 0, dataArray.length-1), is(-1));
     }
 }
