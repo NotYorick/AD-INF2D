@@ -15,10 +15,13 @@ import org.junit.Test;
 public class QueueTest {
 
     protected Queue<Integer> testqueue;
+    CSVReader csvReader;
 
     @Before
     public void setUp() throws Exception {
         testqueue = new Queue<>();
+        csvReader = new CSVReader();
+
     }
 
     @Test
@@ -44,5 +47,25 @@ public class QueueTest {
         testqueue.offer(3);
         assertThat(testqueue.peek(), is(1));
         assertThat(testqueue.peek(), is(1));
+    }
+
+    @Test
+    public void testQueueDataset() {
+        // create Queue that can take the data from the ArrayList
+        Queue<String[]> datasetqueue = new Queue<>();
+        ArrayList<String[]> arrayList = new ArrayList<>(csvReader.getLegoArrayList());
+
+        // offer all arrays from the ArrayList to the Queue
+        for (String[] array : arrayList) {
+            datasetqueue.offer(array);
+        }
+
+        // test if the values come out in the right order
+        assertThat(datasetqueue.peek(), is(arrayList.get(0)));
+        assertThat(datasetqueue.poll(), is(arrayList.get(0)));
+        assertThat(datasetqueue.poll(), is(arrayList.get(1)));
+        assertThat(datasetqueue.poll(), is(arrayList.get(2)));
+        assertThat(datasetqueue.poll(), is(arrayList.get(3)));
+        assertThat(datasetqueue.poll(), is(arrayList.get(4)));
     }
 }
