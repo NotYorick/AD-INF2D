@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="adeindopdracht" default="all">
+  
+  
+  <property file="adeindopdracht.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.war"/>
+    <include name="*.swc"/>
+    <include name="*.zip"/>
+    <include name="*.egg"/>
+    <include name="*.ane"/>
+    <include name="*.jar"/>
+    <include name="*.ear"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.9.0" value="${jdk.home.9.0}/bin"/>
+  <path id="jdk.classpath.9.0">
+    <fileset dir="${jdk.home.9.0}">
+      <include name="!/java.activation"/>
+      <include name="!/java.base"/>
+      <include name="!/java.compiler"/>
+      <include name="!/java.corba"/>
+      <include name="!/java.datatransfer"/>
+      <include name="!/java.desktop"/>
+      <include name="!/java.instrument"/>
+      <include name="!/java.jnlp"/>
+      <include name="!/java.logging"/>
+      <include name="!/java.management"/>
+      <include name="!/java.management.rmi"/>
+      <include name="!/java.naming"/>
+      <include name="!/java.prefs"/>
+      <include name="!/java.rmi"/>
+      <include name="!/java.scripting"/>
+      <include name="!/java.se"/>
+      <include name="!/java.se.ee"/>
+      <include name="!/java.security.jgss"/>
+      <include name="!/java.security.sasl"/>
+      <include name="!/java.smartcardio"/>
+      <include name="!/java.sql"/>
+      <include name="!/java.sql.rowset"/>
+      <include name="!/java.transaction"/>
+      <include name="!/java.xml"/>
+      <include name="!/java.xml.bind"/>
+      <include name="!/java.xml.crypto"/>
+      <include name="!/java.xml.ws"/>
+      <include name="!/java.xml.ws.annotation"/>
+      <include name="!/javafx.base"/>
+      <include name="!/javafx.controls"/>
+      <include name="!/javafx.deploy"/>
+      <include name="!/javafx.fxml"/>
+      <include name="!/javafx.graphics"/>
+      <include name="!/javafx.media"/>
+      <include name="!/javafx.swing"/>
+      <include name="!/javafx.web"/>
+      <include name="!/jdk.accessibility"/>
+      <include name="!/jdk.attach"/>
+      <include name="!/jdk.charsets"/>
+      <include name="!/jdk.compiler"/>
+      <include name="!/jdk.crypto.cryptoki"/>
+      <include name="!/jdk.crypto.ec"/>
+      <include name="!/jdk.crypto.mscapi"/>
+      <include name="!/jdk.deploy"/>
+      <include name="!/jdk.deploy.controlpanel"/>
+      <include name="!/jdk.dynalink"/>
+      <include name="!/jdk.editpad"/>
+      <include name="!/jdk.hotspot.agent"/>
+      <include name="!/jdk.httpserver"/>
+      <include name="!/jdk.incubator.httpclient"/>
+      <include name="!/jdk.internal.ed"/>
+      <include name="!/jdk.internal.jvmstat"/>
+      <include name="!/jdk.internal.le"/>
+      <include name="!/jdk.internal.opt"/>
+      <include name="!/jdk.internal.vm.ci"/>
+      <include name="!/jdk.jartool"/>
+      <include name="!/jdk.javadoc"/>
+      <include name="!/jdk.javaws"/>
+      <include name="!/jdk.jcmd"/>
+      <include name="!/jdk.jconsole"/>
+      <include name="!/jdk.jdeps"/>
+      <include name="!/jdk.jdi"/>
+      <include name="!/jdk.jdwp.agent"/>
+      <include name="!/jdk.jfr"/>
+      <include name="!/jdk.jlink"/>
+      <include name="!/jdk.jshell"/>
+      <include name="!/jdk.jsobject"/>
+      <include name="!/jdk.jstatd"/>
+      <include name="!/jdk.localedata"/>
+      <include name="!/jdk.management"/>
+      <include name="!/jdk.management.agent"/>
+      <include name="!/jdk.management.cmm"/>
+      <include name="!/jdk.management.jfr"/>
+      <include name="!/jdk.management.resource"/>
+      <include name="!/jdk.naming.dns"/>
+      <include name="!/jdk.naming.rmi"/>
+      <include name="!/jdk.net"/>
+      <include name="!/jdk.pack"/>
+      <include name="!/jdk.packager"/>
+      <include name="!/jdk.packager.services"/>
+      <include name="!/jdk.plugin"/>
+      <include name="!/jdk.plugin.dom"/>
+      <include name="!/jdk.plugin.server"/>
+      <include name="!/jdk.policytool"/>
+      <include name="!/jdk.rmic"/>
+      <include name="!/jdk.scripting.nashorn"/>
+      <include name="!/jdk.scripting.nashorn.shell"/>
+      <include name="!/jdk.sctp"/>
+      <include name="!/jdk.security.auth"/>
+      <include name="!/jdk.security.jgss"/>
+      <include name="!/jdk.snmp"/>
+      <include name="!/jdk.unsupported"/>
+      <include name="!/jdk.xml.bind"/>
+      <include name="!/jdk.xml.dom"/>
+      <include name="!/jdk.xml.ws"/>
+      <include name="!/jdk.zipfs"/>
+      <include name="!/oracle.desktop"/>
+      <include name="!/oracle.net"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.9.0}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.9.0}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.9.0"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.hamcrest-core-1.3.classpath">
+    <pathelement location="${basedir}/hamcrest-core-1.3.jar"/>
+  </path>
+  
+  <path id="library.junit-4.12.classpath">
+    <pathelement location="${basedir}/junit-4.12.jar"/>
+  </path>
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <pathelement location="${javac2.home}/javac2.jar"/>
+    <pathelement location="${javac2.home}/jdom.jar"/>
+    <pathelement location="${javac2.home}/asm-all.jar"/>
+    <pathelement location="${javac2.home}/jgoodies-forms.jar"/>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  <import file="${basedir}/module_ad-inf2d.xml"/>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.ad-inf2d" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.ad-inf2d" description="build all modules"/>
+  
+  <target name="all" depends="build.modules" description="build all"/>
+</project>
