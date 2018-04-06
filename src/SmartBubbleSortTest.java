@@ -2,6 +2,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 
@@ -59,6 +61,62 @@ public class SmartBubbleSortTest {
 
         //Should return true because this is set every time it swaps
         assertTrue(sorter.getFlag());
+    }
+
+
+    /**
+
+     * Test method for {@link BubbleSort}.
+
+     */
+
+    @Test
+
+    public void testLegoDatasetUnordered() {
+
+        // create an array of int from the itemnumbers and sort the array
+        CSVReader csvReader = new CSVReader();
+        int[] dataArray = csvReader.getItemNrArray();
+
+        sorter = new SmartBubbleSort(dataArray);
+        int[] correct = dataArray;
+        Arrays.sort(correct);
+
+
+        //Compare the correct array with the sorted array
+        Assert.assertArrayEquals( correct, dataArray );
+
+    }
+
+
+    /**
+
+     * Test method for {@link BubbleSort}.
+
+     */
+
+    @Test
+
+    public void testLegoDatasetOrdered() {
+
+        // create an array of int from the itemnumbers and sort the array
+        CSVReader csvReader = new CSVReader();
+        int[] dataArray = csvReader.getItemNrArray();
+
+        int[] correct2 = dataArray;
+        Arrays.sort(correct2);
+
+        int[] correct = dataArray;
+        Arrays.sort(correct);
+
+        //Because the dataset is already sorted it will exit after one iterations
+        sorter = new SmartBubbleSort(correct);
+
+
+        //Compare the correct array with the sorted array
+        //Because the array is already sorted it will go a lot faster
+        Assert.assertArrayEquals( correct2, correct );
+
     }
 
 

@@ -2,6 +2,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 import static org.hamcrest.CoreMatchers.*;
@@ -26,6 +29,7 @@ public class BubbleSortTest {
         //Create an instance of the BubbleSort class
         sorter = new BubbleSort(testArray);
 
+
     }
 
 
@@ -45,6 +49,30 @@ public class BubbleSortTest {
         //Compare the correct array with the sorted array
         Assert.assertArrayEquals( correctOutcome, testArray );
 
+
+    }
+
+    /**
+
+     * Test method for {@link BubbleSort}.
+
+     */
+
+    @Test
+
+    public void testLegoDataset() {
+
+        // create an array of int from the itemnumbers and sort the array
+        CSVReader csvReader = new CSVReader();
+        int[] dataArray = csvReader.getItemNrArray();
+
+        sorter = new BubbleSort(dataArray);
+        int[] correct = dataArray;
+        Arrays.sort(correct);
+
+
+        //Compare the correct array with the sorted array
+        Assert.assertArrayEquals( correct, dataArray );
 
     }
 
