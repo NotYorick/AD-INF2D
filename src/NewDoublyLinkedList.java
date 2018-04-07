@@ -36,7 +36,7 @@ class NewDoublyLinkedList<E> {
         size++; // update de size
     }
 
-    public boolean add(E element) {
+    public boolean add(E element) { // voegt een nieuwe node toe aan de tail
         if (head == null) {
             head = new Node(element,null,null);
         } else {
