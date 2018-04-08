@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="AD-INF2D:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/AD_INF2D_jar</output-path>
+    <root id="archive" name="AD-INF2D.jar">
+      <element id="module-output" name="AD-INF2D" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/junit-4.12.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/hamcrest-core-1.3.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
