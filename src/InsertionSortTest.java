@@ -45,5 +45,25 @@ public class InsertionSortTest
         int[] result = sorter.getSortedArray();
         assertArrayEquals(expResult, result);
     }
+	
+	/*
+     * Test if the sort works on the legodataset
+     */
+    @Test
+    public void testLegoDataset() {
+
+        // create an array of int from the itemnumbers and sort the array
+        CSVReader csvReader = new CSVReader();
+        int[] dataArray = csvReader.getItemNrArray();
+
+        sorter = new InsertionSort(dataArray);
+        int[] correct = dataArray;
+        Arrays.sort(correct);
+
+
+        //Compare the correct array with the sorted array
+        assertArrayEquals( correct, dataArray );
+
+    }
     
 }
