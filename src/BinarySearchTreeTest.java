@@ -77,5 +77,24 @@ public class BinarySearchTreeTest
         BTS.deleteNode(key);
         int result = BTS.search(BTS.getRoot(),7).key;
     }
+	
+	/*
+     * Test if the tree works with the legodataset
+     */
+    @Test
+    public void testLegoDataset() {
+
+        // create an array of int from the itemnumbers and sort the array
+        CSVReader csvReader = new CSVReader();
+        int[] dataArray = csvReader.getItemNrArray();
+        
+        int[] sorted = dataArray;
+        Arrays.sort(sorted);
+        BTS = new BinarySearchTree(sorted);
+
+        //checks wheter value exists in the tree
+        int result = BTS.search(BTS.getRoot(),10600).key;
+        assertEquals(result, 10600);
+    }
 
 }
